@@ -13,7 +13,7 @@ Go RESTful API Contacts
   7. Database migration
   8. Data validation 
  <br>
-**_About Project_**:
+<p> About Project
 <br>
  **_Everyone create new account and sign-in project_**
   All users 
@@ -22,4 +22,6 @@ Go RESTful API Contacts
     3. Update
     4. Delete 
   themselves contacts
+ 
+ </p>
   
