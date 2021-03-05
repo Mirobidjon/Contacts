@@ -15,13 +15,13 @@ Go RESTful API Contacts
  <br>
 <p> About Project
 <br>
- **_Everyone create new account and sign-in project_**
-  All users 
-    1. Create
-    2. Read
-    3. Update
-    4. Delete 
-  themselves contacts
+ <br> Everyone create new account and sign-in project
+ <br>  All users 
+   <br>  1. Create
+    <br> 2. Read
+ <br>    3. Update
+  <br>   4. Delete 
+   <br> themselves contacts
  
  </p>
   
