@@ -12,8 +12,8 @@ Go RESTful API Contacts
   6. Error handling with proper error response generation
   7. Database migration
   8. Data validation
- **_About Project_**:
-  **_Everyone create new account and sign-in project_**
+**_About Project_**:
+ **_Everyone create new account and sign-in project_**
   All users 
     1. Create
     2. Read
