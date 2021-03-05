@@ -11,7 +11,7 @@ Go RESTful API Contacts
   5. Structured logging with contextual information
   6. Error handling with proper error response generation
   7. Database migration
-  8. Data validation
+  8. Data validation /n
 **_About Project_**:
  **_Everyone create new account and sign-in project_**
   All users 
