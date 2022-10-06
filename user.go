@@ -7,3 +7,11 @@ type User struct {
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }
+
+type ID struct {
+	ID int `json:"id"`
+}
+
+type Token struct {
+	Token string `json:"token"`
+}

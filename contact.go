@@ -10,6 +10,6 @@ type Contact struct {
 
 // DefaultContact ...
 type DefaultContact struct {
-	Name string `json:"name"`
+	Name  string `json:"name"`
 	Phone string `json:"phone"`
 }

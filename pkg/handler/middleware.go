@@ -40,7 +40,7 @@ func getUserID(c *gin.Context) (int, error) {
 	}
 
 	idInt, ok := id.(int)
-	if !ok {	
+	if !ok {
 		newErrorResponce(c, http.StatusInternalServerError, "user id not found")
 		return 0, errors.New("user id not found")
 	}

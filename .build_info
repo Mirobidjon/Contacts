@@ -1,0 +1,4 @@
+export APP=contact
+export REGISTRY=docker.io
+PROJECT_NAME=learn-cloud
+

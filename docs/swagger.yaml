@@ -1,0 +1,268 @@
+definitions:
+  contact.DefaultContact:
+    properties:
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  contact.ID:
+    properties:
+      id:
+        type: integer
+    type: object
+  contact.Token:
+    properties:
+      token:
+        type: string
+    type: object
+  contact.User:
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - name
+    - password
+    - username
+    type: object
+  handler.allContact:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  handler.errorMessage:
+    properties:
+      message:
+        type: string
+    type: object
+  handler.signinInput:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+  license: {}
+paths:
+  /api/contact:
+    get:
+      consumes:
+      - application/json
+      description: Get All Contacts
+      operationId: get-all-contacts
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            items:
+              $ref: '#/definitions/handler.allContact'
+            type: array
+        "400":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+        "500":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+      security:
+      - ApiKeyAuth: []
+      summary: get all contacts
+      tags:
+      - contact
+    post:
+      consumes:
+      - application/json
+      description: Create Contact
+      operationId: create-contact
+      parameters:
+      - description: profession
+        in: body
+        name: profession
+        required: true
+        schema:
+          $ref: '#/definitions/contact.DefaultContact'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            $ref: '#/definitions/contact.DefaultContact'
+        "500":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+      security:
+      - ApiKeyAuth: []
+      summary: create contact
+      tags:
+      - contact
+  /api/contact/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Contact
+      operationId: delete-contact
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            $ref: '#/definitions/contact.ID'
+        "400":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+        "500":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+      security:
+      - ApiKeyAuth: []
+      summary: delete contact
+      tags:
+      - contact
+    get:
+      consumes:
+      - application/json
+      description: Get Contact by id
+      operationId: get-contact
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            $ref: '#/definitions/contact.DefaultContact'
+        "400":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+        "500":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+      security:
+      - ApiKeyAuth: []
+      summary: get contact by id
+      tags:
+      - contact
+    put:
+      consumes:
+      - application/json
+      description: Update Contact
+      operationId: update-contact
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: input
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/contact.DefaultContact'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            $ref: '#/definitions/contact.ID'
+        "400":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+        "500":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+      security:
+      - ApiKeyAuth: []
+      summary: update contact
+      tags:
+      - contact
+  /auth/sign-in:
+    post:
+      consumes:
+      - application/json
+      description: this is login
+      operationId: login
+      parameters:
+      - description: profession
+        in: body
+        name: profession
+        required: true
+        schema:
+          $ref: '#/definitions/handler.signinInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            $ref: '#/definitions/contact.Token'
+      summary: Login
+      tags:
+      - auth
+  /auth/sign-up:
+    post:
+      consumes:
+      - application/json
+      description: this is sign up
+      operationId: sign-up
+      parameters:
+      - description: user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/contact.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            $ref: '#/definitions/contact.ID'
+        "500":
+          description: desc
+          schema:
+            $ref: '#/definitions/handler.errorMessage'
+      summary: Sign up
+      tags:
+      - auth
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

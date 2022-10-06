@@ -1,0 +1,14 @@
+runtime: go116
+service: contact-list
+
+instance_class: F2
+
+env_variables:
+  HTTP_PORT: "8080"
+  environment: "test"
+
+handlers:
+- url: /.*
+  script: auto
+
+main: ./cmd

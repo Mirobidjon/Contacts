@@ -25,3 +25,31 @@ Go RESTful API Contacts
  
  </p>
   
+## Deployment
+
+The application can be run as a docker container. You can use `make build-image` to build the application 
+into a docker image. 
+
+```shell
+make build-image PROJECT_NAME=${PROJECT_NAME} APP=${SERVICE_NAME} TAG=${TAG}
+```
+
+If you want to push this image to registry you can use following command
+```shell
+make push-image
+```
+
+You can also run `go mod vendor && make build` to build an executable binary named `contact`. Then start the API server using the following
+command,
+
+```shell
+./bin/contact
+```
+
+In additional you can deploy to GOOGLE CLOUD APP ENGINE
+
+```shell
+make deploy PROJECT_NAME=${PROJECT_NAME} ENV_TAG=${TAG}
+```
+
+### And you can use the online on my gcp application [link](https://contact-list-dot-learn-cloud-0809.uw.r.appspot.com/swagger/index.html)

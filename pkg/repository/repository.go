@@ -27,9 +27,16 @@ type Repository struct {
 }
 
 // NewRepository ...
-func NewRepository(db *sqlx.DB) *Repository{
+func NewRepository(db *sqlx.DB, isTest bool) *Repository {
+	if isTest {
+		return &Repository{
+			Authorization: NewAuthMock(),
+			Contacts:      NewContactMock(),
+		}
+	}
+
 	return &Repository{
 		Authorization: NewAuthPostgres(db),
-		Contacts: NewContactPostgres(db),
+		Contacts:      NewContactPostgres(db),
 	}
 }

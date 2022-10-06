@@ -1,8 +1,11 @@
 package handler
 
 import (
+	_ "github.com/Mirobidjon/contact-list/docs"
 	"github.com/Mirobidjon/contact-list/pkg/service"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // Handler struct
@@ -38,6 +41,10 @@ func (h *Handler) InitRoutes() *gin.Engine {
 			contacts.GET("/:id", h.getContact)
 		}
 	}
+
+	// swagger
+	url := ginSwagger.URL("swagger/doc.json") // The url pointing to API definition
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	return router
 }
